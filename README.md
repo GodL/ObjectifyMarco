@@ -16,7 +16,7 @@ Introduce
 ` classify(Class) Class` 
 
 ` initializeify(Class) 构造对象宏`</br>
-***`example:`</br>
+&ngsp`example:`</br>
            `UILabel* label = @initializeify(UILabel);`
 
 ` modelify(Class,JSON) model化(必须导入YYModel)`
