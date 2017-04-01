@@ -25,8 +25,8 @@ Introduce
 
 > scheduleify(OBJ,...) 执行一个方法</br>
 *    example:</br>
->           设置一个label的text;
->           scheduleify(label,setText:,text) or scheduleify(label,setText:text)
+             设置一个label的text;
+             scheduleify(label,setText:,text) or scheduleify(label,setText:text)
 
 > recursionCallifyCallify(OBJ,...) 递归调用(最多支持9个参数)</br>
     example:</br>
