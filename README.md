@@ -24,9 +24,9 @@ Introduce
 > modelsify(Class,JSON) model化(必须导入YYModel,返回一个数组)
 
 > scheduleify(OBJ,...) 执行一个方法</br>
-*    example:</br>
-             设置一个label的text;
-             scheduleify(label,setText:,text) or scheduleify(label,setText:text)
+    > example:</br>
+>            设置一个label的text;
+>            scheduleify(label,setText:,text) or scheduleify(label,setText:text)
 
 > recursionCallifyCallify(OBJ,...) 递归调用(最多支持9个参数)</br>
     example:</br>
