@@ -5,17 +5,17 @@ Introduce
 
 ` OM_PASTEARG(...) 连接参数,最多支持9个参数 `
 
-` OM_ClassForceify(obj,Class) 对象类型强制转换</br>
-    example:</br>
-           UILabel* label = OM_ClassForceify(view,UILabel);`
+` OM_ClassForceify(obj,Class) 对象类型强制转换`
+    `example:`
+          ` UILabel* label = OM_ClassForceify(view,UILabel);`
 
-` OM_BasicForceity(obj,type) 普通类型强制转换</br>`
+` OM_BasicForceity(obj,type) 普通类型强制转换`
 
-` OM_Init(block) 构造方法</br>`
+` OM_Init(block) 构造方法`
 
-` classify(Class) Class</br>
+` classify(Class) Class` 
 
-` initializeify(Class) 构造对象宏</br>
+` initializeify(Class) 构造对象宏
     example:</br>
            UILabel* label = @initializeify(UILabel);`
 
