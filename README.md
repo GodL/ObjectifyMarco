@@ -24,7 +24,7 @@ Introduce
 > modelsify(Class,JSON) model化(必须导入YYModel,返回一个数组)
 
 > scheduleify(OBJ,...) 执行一个方法</br>
-    example:</br>
+&#8194    example:</br>
 >           设置一个label的text;
 >           scheduleify(label,setText:,text) or scheduleify(label,setText:text)
 
