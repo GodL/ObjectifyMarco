@@ -17,6 +17,8 @@
 
 #define om_stringify_(A) # A
 
+#define om_stringify(A) om_stringify_(A)
+
 #define om_arg(_1,_2,_3,_4,_5,_6,_7,_8,_9,_10,...) _10
 
 #define om_argcount_(...) om_arg(__VA_ARGS__,9,8,7,6,5,4,3,2,1,0)
