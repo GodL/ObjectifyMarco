@@ -12,7 +12,7 @@ Introduce
     
  OM_ClassForceify(obj,Class) 对象类型强制转换
 	example:
- 	 UILabel* label = OM_ClassForceify(view,UILabel);
+ 	       UILabel* label = OM_ClassForceify(view,UILabel);
  
  OM_BasicForceity(obj,type) 普通类型强制转换
  
