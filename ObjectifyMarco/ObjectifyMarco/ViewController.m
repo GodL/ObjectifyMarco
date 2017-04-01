@@ -26,15 +26,19 @@
     
     
     do {
-        ViewController* vc = sequentialCallify(ViewController,new);
+        ViewController* vc = recursionCallify(ViewController,new);
         (void)vc;
     } while (0);
     
     do {
-        ViewController* vc = sequentialCallify(ViewController,alloc,init);
+        ViewController* vc = recursionCallify(ViewController,alloc,init);
         (void)vc;
     } while (0);
     
+    do {
+        UILabel* label = @initializeify(UILabel);
+        sequentialCallify(label,setTag:11,setText:@"",setFont:nil,setEnabled:YES);
+    } while (0);
     // Do any additional setup after loading the view, typically from a nib.
 }
 

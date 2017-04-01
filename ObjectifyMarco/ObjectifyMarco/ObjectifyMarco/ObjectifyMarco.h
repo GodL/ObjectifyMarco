@@ -75,11 +75,13 @@
 #define initializeify(Class) \
     classify(Class).new
 
+#if __has_include(<YYModel/YYModel.h>)
 #define modelify(Class,JSON) \
     [@classify(Class) yy_modelWithDictionary:JSON]
 
 #define modelsify(Class,JSON) \
     [NSArray yy_modelArrayWithClass:@classify(Class) json:JSON]
+#endif
 
 #define scheduleify_argcount_if_1(selector) \
     selector
@@ -87,41 +89,72 @@
 #define scheduleify_argcount_if_2(selector,arg) \
     selector arg
 
-#define sequentialCallify_argcount_if_1(OBJ,sel) \
+#define recursionCallify_argcount_if_1(OBJ,sel) \
     scheduleify(OBJ,sel)
 
-#define sequentialCallify_argcount_if_2(OBJ,sel1,sel2) \
+#define recursionCallify_argcount_if_2(OBJ,sel1,sel2) \
     scheduleify(scheduleify(OBJ,sel1),sel2)
 
-#define sequentialCallify_argcount_if_3(OBJ,sel1,sel2,sel3) \
+#define recursionCallify_argcount_if_3(OBJ,sel1,sel2,sel3) \
     scheduleify(scheduleify(scheduleify(OBJ,sel1),sel2),sel3)
 
-#define sequentialCallify_argcount_if_4(OBJ,sel1,sel2,sel3,sel4) \
+#define recursionCallify_argcount_if_4(OBJ,sel1,sel2,sel3,sel4) \
     scheduleify(scheduleify(scheduleify(scheduleify(OBJ,sel1),sel2),sel3) \
     ,sel4)
 
-#define sequentialCallify_argcount_if_5(OBJ,sel1,sel2,sel3,sel4,sel5) \
+#define recursionCallify_argcount_if_5(OBJ,sel1,sel2,sel3,sel4,sel5) \
     scheduleify(scheduleify(scheduleify(scheduleify(scheduleify(OBJ,sel1),sel2) \
     ,sel3),sel4),sel5)
 
-#define sequentialCallify_argcount_if_6(OBJ,sel1,sel2,sel3,sel4,sel5,sel6) \
+#define recursionCallify_argcount_if_6(OBJ,sel1,sel2,sel3,sel4,sel5,sel6) \
     scheduleify(scheduleify(scheduleify(scheduleify(scheduleify(scheduleify(OBJ,sel1) \
     ,sel2),sel3),sel4),sel5),sel6)
 
-#define sequentialCallify_argcount_if_7(OBJ,sel1,sel2,sel3,sel4,sel5,sel6,sel7) \
+#define recursionCallify_argcount_if_7(OBJ,sel1,sel2,sel3,sel4,sel5,sel6,sel7) \
     scheduleify(scheduleify(scheduleify(scheduleify(scheduleify(scheduleify(scheduleify(OBJ \
     ,sel1),sel2),sel3),sel4),sel5),sel6),sel7)
 
-#define sequentialCallify_argcount_if_8(OBJ,sel1,sel2,sel3,sel4,sel5,sel6,sel7,sel8) \
+#define recursionCallify_argcount_if_8(OBJ,sel1,sel2,sel3,sel4,sel5,sel6,sel7,sel8) \
     scheduleify(scheduleify(scheduleify(scheduleify(scheduleify(scheduleify(scheduleify(scheduleify \
     (OBJ,sel1),sel2),sel3),sel4),sel5),sel6),sel7),sel8)
 
-#define sequentialCallify_argcount_if_9(OBJ,sel1,sel2,sel3,sel4,sel5,sel6,sel7,sel8,sel9) \
+#define recursionCallify_argcount_if_9(OBJ,sel1,sel2,sel3,sel4,sel5,sel6,sel7,sel8,sel9) \
     scheduleify(scheduleify(scheduleify(scheduleify(scheduleify(scheduleify(scheduleify(scheduleify( \
     scheduleify(OBJ,sel1),sel2),sel3),sel4),sel5),sel6),sel7),sel8),sel9)
 
+#define sequentialCallify_argcount_if_1(OBJ,_1) \
+    scheduleify(OBJ,_1)
+
+#define sequentialCallify_argcount_if_2(OBJ,_1,_2) \
+    sequentialCallify_argcount_if_1(OBJ,_1); scheduleify(OBJ,_2)
+
+#define sequentialCallify_argcount_if_3(OBJ,_1,_2,_3) \
+    sequentialCallify_argcount_if_2(OBJ,_1,_2); scheduleify(OBJ,_3)
+
+#define sequentialCallify_argcount_if_4(OBJ,_1,_2,_3,_4) \
+    sequentialCallify_argcount_if_3(OBJ,_1,_2,_3); scheduleify(OBJ,_4)
+
+#define sequentialCallify_argcount_if_5(OBJ,_1,_2,_3,_4,_5) \
+    sequentialCallify_argcount_if_4(OBJ,_1,_2,_3,_4); scheduleify(OBJ,_5)
+
+#define sequentialCallify_argcount_if_6(OBJ,_1,_2,_3,_4,_5,_6) \
+    sequentialCallify_argcount_if_5(OBJ,_1,_2,_3,_4,_5); scheduleify(OBJ,_6)
+
+#define sequentialCallify_argcount_if_7(OBJ,_1,_2,_3,_4,_5,_6,_7) \
+    sequentialCallify_argcount_if_6(OBJ,_1,_2,_3,_4,_5,_6); scheduleify(OBJ,_7)
+
+#define sequentialCallify_argcount_if_8(OBJ,_1,_2,_3,_4,_5,_6,_7,_8) \
+    sequentialCallify_argcount_if_7(OBJ,_1,_2,_3,_4,_5,_6,_7); scheduleify(OBJ,_8)
+
+#define sequentialCallify_argcount_if_9(OBJ,_1,_2,_3,_4,_5,_6,_7,_8,_9) \
+    sequentialCallify_argcount_if_8(OBJ,_1,_2,_3,_4,_5,_6,_7,_8); scheduleify(OBJ,_9)
+
+
 #define scheduleify(OBJ,...) \
     [OBJ OM_PASTEARG2(scheduleify_argcount_if_,om_argcount(__VA_ARGS__))(__VA_ARGS__)]
+
+#define recursionCallify(OBJ,...) \
+    OM_PASTEARG(recursionCallify_argcount_if_,om_argcount(__VA_ARGS__))(OBJ,__VA_ARGS__)
 
 #define sequentialCallify(OBJ,...) \
     OM_PASTEARG(sequentialCallify_argcount_if_,om_argcount(__VA_ARGS__))(OBJ,__VA_ARGS__)
