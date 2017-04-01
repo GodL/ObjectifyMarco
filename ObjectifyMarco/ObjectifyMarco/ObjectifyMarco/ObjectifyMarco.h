@@ -93,34 +93,28 @@
     scheduleify(OBJ,sel)
 
 #define recursionCallify_argcount_if_2(OBJ,sel1,sel2) \
-    scheduleify(scheduleify(OBJ,sel1),sel2)
+recursionCallify_argcount_if_1(recursionCallify_argcount_if_1(OBJ,sel1),sel2)
 
 #define recursionCallify_argcount_if_3(OBJ,sel1,sel2,sel3) \
-    scheduleify(scheduleify(scheduleify(OBJ,sel1),sel2),sel3)
+recursionCallify_argcount_if_1(recursionCallify_argcount_if_2(OBJ,sel1,sel2),sel3)
 
 #define recursionCallify_argcount_if_4(OBJ,sel1,sel2,sel3,sel4) \
-    scheduleify(scheduleify(scheduleify(scheduleify(OBJ,sel1),sel2),sel3) \
-    ,sel4)
+recursionCallify_argcount_if_1(recursionCallify_argcount_if_3(OBJ,sel1,sel2,sel3),sel4)
 
 #define recursionCallify_argcount_if_5(OBJ,sel1,sel2,sel3,sel4,sel5) \
-    scheduleify(scheduleify(scheduleify(scheduleify(scheduleify(OBJ,sel1),sel2) \
-    ,sel3),sel4),sel5)
+recursionCallify_argcount_if_1(recursionCallify_argcount_if_4(OBJ,sel1,sel2,sel3,sel4),sel5)
 
 #define recursionCallify_argcount_if_6(OBJ,sel1,sel2,sel3,sel4,sel5,sel6) \
-    scheduleify(scheduleify(scheduleify(scheduleify(scheduleify(scheduleify(OBJ,sel1) \
-    ,sel2),sel3),sel4),sel5),sel6)
+recursionCallify_argcount_if_1(recursionCallify_argcount_if_5(OBJ,sel1,sel2,sel3,sel4,sel5),sel6)
 
 #define recursionCallify_argcount_if_7(OBJ,sel1,sel2,sel3,sel4,sel5,sel6,sel7) \
-    scheduleify(scheduleify(scheduleify(scheduleify(scheduleify(scheduleify(scheduleify(OBJ \
-    ,sel1),sel2),sel3),sel4),sel5),sel6),sel7)
+recursionCallify_argcount_if_1(recursionCallify_argcount_if_6(OBJ,sel1,sel2,sel3,sel4,sel5,sel6),sel7)
 
 #define recursionCallify_argcount_if_8(OBJ,sel1,sel2,sel3,sel4,sel5,sel6,sel7,sel8) \
-    scheduleify(scheduleify(scheduleify(scheduleify(scheduleify(scheduleify(scheduleify(scheduleify \
-    (OBJ,sel1),sel2),sel3),sel4),sel5),sel6),sel7),sel8)
+recursionCallify_argcount_if_1(recursionCallify_argcount_if_7(OBJ,sel1,sel2,sel3,sel4,sel5,sel6,sel7),sel8)
 
 #define recursionCallify_argcount_if_9(OBJ,sel1,sel2,sel3,sel4,sel5,sel6,sel7,sel8,sel9) \
-    scheduleify(scheduleify(scheduleify(scheduleify(scheduleify(scheduleify(scheduleify(scheduleify( \
-    scheduleify(OBJ,sel1),sel2),sel3),sel4),sel5),sel6),sel7),sel8),sel9)
+recursionCallify_argcount_if_1(recursionCallify_argcount_if_8(OBJ,sel1,sel2,sel3,sel4,sel5,sel6,sel7,sel8),sel9)
 
 #define sequentialCallify_argcount_if_1(OBJ,_1) \
     scheduleify(OBJ,_1)
