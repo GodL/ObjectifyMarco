@@ -38,7 +38,7 @@ Introduce
  	       recursionCallifyCallify(UILabel,alloc,init,setText:text);(递归调用是将上一次调用的返回值调用下一个方法)
  			 
  sequentialCallify(OBJ,...) 连续调用(最多支持9个参数)
- 	example:
-          UILabel* label = @initializeify(UILabel);
-          sequentialCallify(label,setTag:11,setText:@"",setFont:nil,setEnabled:YES);(连续调用是将传入的OBJ,依次执行后面传入的方法)
+	example:
+	       UILabel* label = @initializeify(UILabel);
+	       sequentialCallify(label,setTag:11,setText:@"",setFont:nil,setEnabled:YES);(连续调用是将传入的OBJ,依次执行后面传入的方法)
 ```    
